@@ -1,9 +1,6 @@
 package m320.projekt.doenerladen;
 
-import m320.projekt.essen.Doener;
-import m320.projekt.essen.Essen;
-import m320.projekt.essen.Hamburger;
-import m320.projekt.essen.Pizza;
+import m320.projekt.essen.*;
 
 import java.util.List;
 
@@ -16,9 +13,11 @@ public class Doenermann {
 
     public Essen bestelle(String essensBezeichnung, List<String> lebensMittel) {
         Essen bestellung;
-        if (essensBezeichnung.equalsIgnoreCase("Döner")) {
-            bestellung = new Doener();
-        } else if (essensBezeichnung.equalsIgnoreCase("Hamburger")){
+        if (essensBezeichnung.equalsIgnoreCase("dönerFladenbrot")) {
+            bestellung = new DoenerFladenbrot();
+        } else if (essensBezeichnung.equalsIgnoreCase("dönerTaschenbrot")){
+            bestellung = new DoenerTaschenbrot();
+        } else if (essensBezeichnung.equalsIgnoreCase("hamburger")){
             bestellung = new Hamburger();
         } else {
             bestellung = new Pizza();
