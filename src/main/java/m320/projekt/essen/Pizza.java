@@ -5,6 +5,7 @@ import m320.projekt.LebensmittelNichtMoeglichException;
 import java.util.List;
 
 public class Pizza implements Essen {
+    private static final int PREIS_CHF = 13;
     private List<String> lebensMittel;
 
     @Override
@@ -18,6 +19,10 @@ public class Pizza implements Essen {
     @Override
     public List<String> getLebensmittel() {
         return lebensMittel;
+    }
+
+    public static int getPreisChf() {
+        return PREIS_CHF;
     }
 
 }

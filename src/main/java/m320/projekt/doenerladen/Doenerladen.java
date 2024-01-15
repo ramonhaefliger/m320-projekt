@@ -17,9 +17,9 @@ public class Doenerladen {
         randomGenerator = new Random();
     }
 
-    public Essen bestelle(String essensBezeichnung, List<String> lebensMittel) {
+    public Essen bestelle(String essensBezeichnung, List<String> lebensMittel, int geldChf) {
         Doenermann randomDoenermann = getRandomDoenermann();
-        return randomDoenermann.bestelle(essensBezeichnung, lebensMittel);
+        return randomDoenermann.bestelle(essensBezeichnung, lebensMittel, geldChf);
     }
 
     private Doenermann getRandomDoenermann() {
