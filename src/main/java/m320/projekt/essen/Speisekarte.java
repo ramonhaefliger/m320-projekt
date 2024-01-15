@@ -3,7 +3,7 @@ package m320.projekt.essen;
 import java.util.List;
 import java.util.Map;
 
-public class Speisekarte {
+public abstract class Speisekarte {
 
     public static Map<String, List<String>> SPEISEKARTE = Map.of(
             "döner", List.of("fleisch", "tomaten", "zwiebeln", "cocktail", "mais"),
