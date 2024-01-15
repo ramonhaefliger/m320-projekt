@@ -16,7 +16,7 @@ public class DoenerladenTest {
     public void bestelleDoener() {
         List<String> lebensMittel = List.of("zwiebeln", "mais", "fleisch", "cocktail");
 
-        Essen doener = doenerladen.bestelle("dönerFladenbrot", lebensMittel, 10);
+        Essen doener = doenerladen.bestelle("döner_fladenbrot", lebensMittel, 10);
 
         assertEquals(lebensMittel, doener.getLebensmittel());
     }
@@ -43,7 +43,7 @@ public class DoenerladenTest {
     public void bestelleDoenerMitNichtMoeglichenLebensmittel() {
         List<String> lebensMittel = List.of("mozzarella");
 
-        assertThrows(LebensmittelNichtMoeglichException.class, () -> doenerladen.bestelle("dönerFladenbrot", lebensMittel, 10));
+        assertThrows(LebensmittelNichtMoeglichException.class, () -> doenerladen.bestelle("döner_fladenbrot", lebensMittel, 10));
     }
 
     @Test
@@ -64,7 +64,7 @@ public class DoenerladenTest {
     public void bestelleDoenerMitZuWenigGeld() {
         List<String> lebensMittel = List.of("zwiebeln", "mais", "fleisch", "cocktail");
 
-        assertThrows(ZuWenigGeldException.class, () -> doenerladen.bestelle("dönerFladenbrot", lebensMittel, 9));
+        assertThrows(ZuWenigGeldException.class, () -> doenerladen.bestelle("döner_fladenbrot", lebensMittel, 9));
     }
 
 }

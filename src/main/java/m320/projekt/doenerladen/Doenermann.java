@@ -14,26 +14,31 @@ public class Doenermann {
 
     public Essen bestelle(String essensBezeichnung, List<String> lebensMittel, int geldChf) {
         Essen bestellung;
-        if (essensBezeichnung.equalsIgnoreCase("dönerFladenbrot")) {
-            if (geldChf < DoenerFladenbrot.getPreisChf()) {
-                throw new ZuWenigGeldException("Zu wenig Geld.");
+        switch (essensBezeichnung.toLowerCase()) {
+            case "döner_fladenbrot" -> {
+                if (geldChf < DoenerFladenbrot.getPreisChf()) {
+                    throw new ZuWenigGeldException("Zu wenig Geld.");
+                }
+                bestellung = new DoenerFladenbrot();
             }
-            bestellung = new DoenerFladenbrot();
-        } else if (essensBezeichnung.equalsIgnoreCase("dönerTaschenbrot")){
-            if (geldChf < DoenerTaschenbrot.getPreisChf()) {
-                throw new ZuWenigGeldException("Zu wenig Geld.");
+            case "döner_taschenbrot" -> {
+                if (geldChf < DoenerTaschenbrot.getPreisChf()) {
+                    throw new ZuWenigGeldException("Zu wenig Geld.");
+                }
+                bestellung = new DoenerTaschenbrot();
             }
-            bestellung = new DoenerTaschenbrot();
-        } else if (essensBezeichnung.equalsIgnoreCase("hamburger")){
-            if (geldChf < Hamburger.getPreisChf()) {
-                throw new ZuWenigGeldException("Zu wenig Geld.");
+            case "hamburger" -> {
+                if (geldChf < Hamburger.getPreisChf()) {
+                    throw new ZuWenigGeldException("Zu wenig Geld.");
+                }
+                bestellung = new Hamburger();
             }
-            bestellung = new Hamburger();
-        } else {
-            if (geldChf < Pizza.getPreisChf()) {
-                throw new ZuWenigGeldException("Zu wenig Geld.");
+            default -> {
+                if (geldChf < Pizza.getPreisChf()) {
+                    throw new ZuWenigGeldException("Zu wenig Geld.");
+                }
+                bestellung = new Pizza();
             }
-            bestellung = new Pizza();
         }
         bestellung.setLebensMittel(lebensMittel);
         return bestellung;
